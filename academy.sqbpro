@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Сергей/Desktop/python/lesson38python/hw27/academy.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2224"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,11:mainDepartments"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="academy.sql">DROP TABLE IF EXISTS &quot;Teachers&quot;;
+CREATE TABLE &quot;Teachers&quot; (
+	&quot;id&quot;	INTEGER NOT NULL UNIQUE, 
+	&quot;name&quot;	TEXT NOT NULL,
+	&quot;surname&quot;	TEXT NOT NULL,
+	&quot;Salary&quot; INTEGER NOT NULL,
+	&quot;DateOfEmployment&quot; TEXT NOT NULL,
+	&quot;Position&quot;	TEXT NOT NULL,
+	&quot;isAssistent&quot; NUMERIC NOT NULL DEFAULT 0,
+	&quot;isProfessor&quot; NUMERIC NOT NULL DEFAULT 0,
+	&quot;Premium&quot; INTEGER NOT NULL DEFAULT 0,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);
+INSERT INTO &quot;Teachers&quot;  VALUES (1,&quot;Иван&quot;,&quot;Середа&quot;,1200,&quot;12.08.1998&quot;,&quot;Професор&quot;,0,1,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (2,&quot;Степан&quot;,&quot;След&quot;,1100,&quot;15.02.1997&quot;,&quot;Професор&quot;,0,1,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (3,&quot;Антон&quot;,&quot;Ганжа&quot;,1050,&quot;10.03.2001&quot;,&quot;Ассистент&quot;,1,0,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (4,&quot;Алексей&quot;,&quot;Вторник&quot;,800,&quot;06.04.2003&quot;,&quot;Ассистент&quot;,1,0,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (5,&quot;Юрий&quot;,&quot;Вишня&quot;,1300,&quot;02.02.2002&quot;,&quot;Ассистент&quot;,1,0,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (6,&quot;Петр&quot;,&quot;Вниз&quot;,1500,&quot;25.04.2000&quot;,&quot;Професор&quot;,0,1,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (7,&quot;Илья&quot;,&quot;Илююхин&quot;,900,&quot;21.06.2010&quot;,&quot;Ассистент&quot;,1,0,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (8,&quot;Андрей&quot;,&quot;Простой&quot;,1030,&quot;20.06.2008&quot;,&quot;Професор&quot;,0,1,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (9,&quot;Иван&quot;,&quot;Терехин&quot;,1000,&quot;28.05.2013&quot;,&quot;Ассистент&quot;,1,0,0);
+INSERT INTO &quot;Teachers&quot;  VALUES (10,&quot;Сергей&quot;,&quot;Плохой&quot;,840,&quot;24.01.2001&quot;,&quot;Професор&quot;,0,1,0);
+
+DROP TABLE IF EXISTS &quot;Groups&quot;;
+CREATE TABLE &quot;Groups&quot; (
+	&quot;id&quot;	INTEGER NOT NULL,
+	&quot;Name&quot;	TEXT NOT NULL UNIQUE,
+	&quot;Rating&quot;	INTEGER NOT NULL,
+	&quot;Year&quot;	INTEGER NOT NULL,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);
+INSERT INTO &quot;Groups&quot; VALUES (1,&quot;OBD1&quot;,4,3);
+INSERT INTO &quot;Groups&quot; VALUES (2,&quot;OBD2&quot;,3,5);
+INSERT INTO &quot;Groups&quot; VALUES (3,&quot;OBD3&quot;,4,3);
+INSERT INTO &quot;Groups&quot; VALUES (4,&quot;OBD4&quot;,3,2);
+INSERT INTO &quot;Groups&quot; VALUES (5,&quot;OBD5&quot;,5,1);
+INSERT INTO &quot;Groups&quot; VALUES (6,&quot;OBD6&quot;,4,3);
+INSERT INTO &quot;Groups&quot; VALUES (7,&quot;OBD7&quot;,5,1);
+INSERT INTO &quot;Groups&quot; VALUES (8,&quot;OBD8&quot;,4,3);
+INSERT INTO &quot;Groups&quot; VALUES (9,&quot;OBD9&quot;,3,2);
+INSERT INTO &quot;Groups&quot; VALUES (10,&quot;OBD10&quot;,4,3);
+
+DROP TABLE IF EXISTS &quot;Departments&quot;;
+CREATE TABLE &quot;Departments&quot; (
+	&quot;id&quot;	INTEGER NOT NULL UNIQUE,
+	&quot;Name&quot;	TEXT NOT NULL UNIQUE,
+	&quot;Financing&quot;	INTEGER NOT NULL DEFAULT 0,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);
+
+INSERT INTO &quot;Departments&quot; VALUES (1,&quot;Computer Science&quot;,13500);
+INSERT INTO &quot;Departments&quot; VALUES (2,&quot;Nature Science&quot;,20000);
+INSERT INTO &quot;Departments&quot; VALUES (3,&quot;Chemical&quot;,14000);
+INSERT INTO &quot;Departments&quot; VALUES (4,&quot;Mathematic&quot;,11500);
+INSERT INTO &quot;Departments&quot; VALUES (5,&quot;English&quot;,11500);
+INSERT INTO &quot;Departments&quot; VALUES (6,&quot;Phisic Science&quot;,13500);
+INSERT INTO &quot;Departments&quot; VALUES (7,&quot;Mechanic&quot;,10500);
+INSERT INTO &quot;Departments&quot; VALUES (8,&quot;Security Science&quot;,12000);
+INSERT INTO &quot;Departments&quot; VALUES (9,&quot;Science&quot;,9500);
+INSERT INTO &quot;Departments&quot; VALUES (10,&quot;Higher mathematics&quot;,8500);
+
+
+DROP TABLE IF EXISTS &quot;Faculties&quot;;
+CREATE TABLE &quot;Faculties&quot; (
+	&quot;id&quot;	INTEGER NOT NULL UNIQUE,
+	&quot;Name&quot;	TEXT NOT NULL UNIQUE,
+	&quot;Decan&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);
+
+INSERT INTO &quot;Faculties&quot; VALUES (1,&quot;Computer Science&quot;,&quot;Арнольд&quot;);
+INSERT INTO &quot;Faculties&quot; VALUES (2,&quot;Mathematic&quot;,&quot;Альфред&quot;);
+INSERT INTO &quot;Faculties&quot; VALUES (3,&quot;Finance&quot;,&quot;Бенжамин&quot;);
+
+-- 1. Вывести таблицу кафедр, но расположить ее поля в обратном порядке. + сортировка по названию
+
+SELECT * FROM &quot;Departments&quot; 
+ORDER BY Name DESC ;
+
+
+-- 2. Вывести названия групп и их рейтинги с уточнением имен полей именем таблицы. + сортировка по рейтингу от большего к меньшему + первые 3 
+
+SELECT Name,Rating FROM &quot;Groups&quot; ;
+SELECT * FROM &quot;Groups&quot; ORDER BY &quot;Rating&quot; DESC LIMIT 3;
+
+-- 5. Вывести фамилии преподавателей, которые являются профессорами и ставка которых превышает 1050.
+
+
+SELECT surname FROM &quot;Teachers&quot; WHERE Salary &gt;1050 AND Position == &quot;Професор&quot;;
+
+
+-- 6. Вывести названия кафедр, фонд финансирования которых меньше 11000 или больше 25000.от 11000 до 25000
+
+SELECT &quot;Name&quot; FROM &quot;Departments&quot; WHERE Financing &gt;= 11000 and Financing &lt;=25000;
+
+-- 7.. Вывести названия факультетов кроме факультета “Computer Science”
+
+SELECT &quot;Name&quot; FROM &quot;Faculties&quot; WHERE &quot;Name&quot; != &quot;Computer Science&quot;; 
+
+-- 8. Вывести фамилии и должности преподавателей, которые не являются профессорами.
+
+SELECT &quot;surname&quot;,&quot;Position&quot; FROM &quot;Teachers&quot; WHERE &quot;Position&quot; != &quot;Професор&quot;;
+
+--10. Вывести фамилии и ставки ассистентов.
+
+SELECT &quot;surname&quot;,&quot;Salary&quot; FROM &quot;Teachers&quot; WHERE &quot;Position&quot; == &quot;Ассистент&quot;;
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
